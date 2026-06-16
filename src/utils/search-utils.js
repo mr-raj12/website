@@ -1,8 +1,9 @@
 import stringSimilarity from 'string-similarity';
 
-const API_KEYS = [
-    # use .env
-];
+const API_KEYS = (process.env.GEMINI_API_KEYS || '')
+    .split(',')
+    .map((key) => key.trim())
+    .filter(Boolean);
 
 
 const STOPWORDS = new Set([
